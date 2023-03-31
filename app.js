@@ -2,7 +2,7 @@ function initialize() {
     var status = "* Offline *";
     if (navigator.onLine) {
         status = "* Online *";
-        retrieve();
+        retrieveTrails();
     } else {
         const localStorage = window.localStorage;
         if (localStorage) {
@@ -31,14 +31,14 @@ function initialize() {
     );
 }
 
-function retrieve() {
+function retrieveTrails() {
     const xhr = new XMLHttpRequest();
     const url = "trail.json";
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
             var trails = JSON.parse(xhr.response).trails;
-            displayContacts(trails);
+            displayTrails(trails);
 
             // Store contact data to localstorage
             const localStorage = window.localStorage;
@@ -52,23 +52,23 @@ function retrieve() {
     xhr.send();
 }
 
-function displayContacts(trails) {
+function displayTrails(trails) {
     trails.forEach(addRow);
 }
 
-function addRow(trails) {
+function addRow(trail) {
     var tcontent = document.getElementById("tcontent");
     var row = tcontent.insertRow();
 
     var nameCell = row.insertCell();
     nameCell.setAttribute('data-label', "Title_en");
-    nameCell.innerHTML = trails.Title_en;
+    nameCell.innerHTML = trail.Title_en;
 
     var addressCell = row.insertCell();
     addressCell.setAttribute('data-label', "Title_tc");
-    addressCell.innerHTML = trails.Title_tc;
+    addressCell.innerHTML = trail.Title_tc;
 
     var mobileCell = row.insertCell();
     mobileCell.setAttribute('data-label', "Title_sc");
-    mobileCell.innerHTML = trails.Title_sc;
+    mobileCell.innerHTML = trail.Title_sc;
 }

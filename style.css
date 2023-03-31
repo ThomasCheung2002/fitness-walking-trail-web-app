@@ -34,6 +34,10 @@ table th {
     table td {
         display: block;
         text-align: right;
+        border-bottom: 0px;
+    }
+    table td:last-child {
+        border: 1px solid #000000;
     }
     /* Behave like a table header */
     table td::before {

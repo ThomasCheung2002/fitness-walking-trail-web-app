@@ -61,14 +61,14 @@ function addRow(trail) {
     var row = tcontent.insertRow();
 
     var nameCell = row.insertCell();
-    nameCell.setAttribute('data-label', "Title_en");
+    nameCell.setAttribute('data-label', "English");
     nameCell.innerHTML = trail.Title_en;
 
     var addressCell = row.insertCell();
-    addressCell.setAttribute('data-label', "Title_tc");
+    addressCell.setAttribute('data-label', "Chinese (Traditional)");
     addressCell.innerHTML = trail.Title_tc;
 
     var mobileCell = row.insertCell();
-    mobileCell.setAttribute('data-label', "Title_sc");
+    mobileCell.setAttribute('data-label', "Chinese (Simplified)");
     mobileCell.innerHTML = trail.Title_sc;
 }

@@ -56,7 +56,7 @@ function displayContacts(trails) {
     trails.forEach(addRow);
 }
 
-function addRow(contact) {
+function addRow(trails) {
     var tcontent = document.getElementById("tcontent");
     var row = tcontent.insertRow();
 

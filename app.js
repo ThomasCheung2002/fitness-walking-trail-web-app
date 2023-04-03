@@ -1,36 +1,3 @@
-function initialize() {
-    var status = "* Offline *";
-    if (navigator.onLine) {
-        status = "* Online *";
-        retrieveTrails();
-    } else {
-        const localStorage = window.localStorage;
-        if (localStorage) {
-            const trails = localStorage.getItem("trails");
-            if (trails) {
-                displayContacts(JSON.parse(trails));
-            }
-        }
-    }
-
-    document.getElementById("status").innerHTML = status;
-
-    document.body.addEventListener(
-        "online",
-        function() {
-            document.getElementById("status").innerHTML = "Online";
-        },
-        false
-    );
-    document.body.addEventListener(
-        "offline",
-        function() {
-            document.getElementById("status").innerHTML = "Offline";
-        },
-        false
-    );
-}
-
 function retrieveTrails() {
     const xhr = new XMLHttpRequest();
     const url = "trail.json";
